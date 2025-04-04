@@ -15,27 +15,33 @@ function drawShape(shape) {
 
     switch (shape.type) {
         case 'rectangle':
+            console.log("Drawing rectangle", shape);
             ctx.rect(shape.x, shape.y, shape.width, shape.height);
             ctx.fill();
             break;
         case 'circle':
+            console.log("Drawing circle", shape);
             ctx.arc(shape.x, shape.y, shape.radius, 0, Math.PI * 2);
             ctx.fill();
             break;
         case 'line':
+            console.log("Drawing line", shape);
             ctx.moveTo(shape.x1, shape.y1);
             ctx.lineTo(shape.x2, shape.y2);
             ctx.stroke();
             break;
         case 'triangle':
+            console.log("Drawing triangle", shape);
             ctx.moveTo(shape.x1, shape.y1);
             ctx.lineTo(shape.x2, shape.y2);
             ctx.lineTo(shape.x3, shape.y3);
             ctx.closePath();
             ctx.fill();
             break;
+        default:
+            console.log("Unknown shape type", shape);
     }
-}  
+} 
 
 // Redraw the entire canvas based on the shapes array
 function redrawCanvas() {
@@ -204,6 +210,7 @@ function initShapes() {
         color: 'yellow'
     });
 
+    console.log("Shapes array:", shapes);
     redrawCanvas();
 }
 
