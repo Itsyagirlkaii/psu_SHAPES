@@ -16,9 +16,11 @@ function drawShape(shape) {
     switch (shape.type) {
         case 'rectangle':
             ctx.rect(shape.x, shape.y, shape.width, shape.height);
+            ctx.fill();
             break;
         case 'circle':
             ctx.arc(shape.x, shape.y, shape.radius, 0, Math.PI * 2);
+            ctx.fill();
             break;
         case 'line':
             ctx.moveTo(shape.x1, shape.y1);
@@ -30,9 +32,10 @@ function drawShape(shape) {
             ctx.lineTo(shape.x2, shape.y2);
             ctx.lineTo(shape.x3, shape.y3);
             ctx.closePath();
+            ctx.fill();
             break;
     }
-}    
+}  
 
 // Redraw the entire canvas based on the shapes array
 function redrawCanvas() {
