@@ -1,3 +1,5 @@
+console.log("script.js loaded");
+
 //Canvas in 2D
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -27,7 +29,6 @@ function drawShape(shape) {
             ctx.moveTo(shape.x1, shape.y1);
             ctx.lineTo(shape.x2, shape.y2);
             ctx.lineTo(shape.x3, shape.y3);
-            ctx.closePath();
             ctx.closePath();
             break;
     }
@@ -125,7 +126,8 @@ function addRandomShape(x, y) {
     const color = getRandomColor();
     let newShape;
 
-    if (type === 'rectangle') {
+    if (randomType === 'rectangle') {
+        const width = 100, height = 50;
         newShape = {
             type: 'rectangle',
             x: x - width / 2,
@@ -134,7 +136,7 @@ function addRandomShape(x, y) {
             height: height,
             color: color
         };
-    } else if (type === 'circle') {
+    } else if (randomType === 'circle') {
         newShape = {
             type: 'circle',
             x: x,
@@ -142,8 +144,7 @@ function addRandomShape(x, y) {
             radius: Math.random() * 50 + 10,
             color: color
         };
-    }
-    else if (type === 'triangle') {
+    } else if (randomType === 'triangle') {
         newShape = {
             type: 'triangle',
             x1: x,
