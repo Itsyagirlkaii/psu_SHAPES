@@ -1,3 +1,5 @@
+console.log("script.js loaded");
+
 // Get the canvas and its 2D context
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
@@ -18,6 +20,7 @@ function drawShape(shape) {
     case 'circle':
       ctx.arc(shape.x, shape.y, shape.radius, 0, Math.PI * 2);
       ctx.fill();
+      ctx.closePath(); // Fix: Ensure the path for the circle is closed
       break;
     case 'triangle':
       ctx.moveTo(shape.x1, shape.y1);
@@ -226,7 +229,6 @@ canvas.addEventListener('click', function(e) {
     shapes.splice(shapeIndex, 1);
     redrawCanvas();
   } else {
-    
     addRandomShape(x, y);
   }
 });
